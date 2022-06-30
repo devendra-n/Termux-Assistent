@@ -10,8 +10,10 @@ pip install instaloader
 rm $PREFIX/bin/termux-tts-speak
 chmod +x termux-tts-speak
 mv -v termux-tts-speak $PREFIX/bin/
-chmod +x dk
-mv -v dk $PREFIX/bin
+mkdir $PREFIX/.ASSISTENT
+mv -v * .ASSISTENT
+mv -v assist $PREFIX/bin
+chmod +x $PREFIX/bin/assist
 clear
 echo "Please subscribe our YT Channel -Dk Tech Point" |lolcat -a
 
