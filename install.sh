@@ -16,7 +16,7 @@ chmod +x $PREFIX/bin/assist
 clear
 echo "Please subscribe our YT Channel -Dk Tech Point" |lolcat -a
 mkdir $PREFIX/ASSISTENT
-mv -v * ASSISTENT
+mv -v * $PREFIX/ASSISTENT
 
 
 
