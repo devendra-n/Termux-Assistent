@@ -1,10 +1,18 @@
 import ast
 dataset=[]
+def defaultwrite(file):
+    f=open(file,'w')
+    f.write('[]')
+    f.close()
+    return '[]'
 def readDb(filename):
   try:
-    f=open(filename,'r')
-    data=f.read()
-    f.close()
+    try:
+      f=open(filename,'r')
+      data=f.read()
+      f.close()
+    except:
+      data=defaultwrite(filename)
     data=ast.literal_eval(data)
     return data
   except:
@@ -43,12 +51,12 @@ def bestMatch(que):
   level=0
   index=-1
   resp=[]
-  for i in dataset:
-    mtch=matcher(i['query'],que)
-    index+=1
+  for i in range(len(dataset)):
+    mtch=matcher(dataset[i]['query'],que)
     if mtch['level']>=level:
         level=mtch['level']
-        resp=i['res']
+        index=i
+        resp=dataset[i]['res']
     else:
       pass
   return [index,level,resp]
