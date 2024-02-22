@@ -23,8 +23,11 @@ def reply(query):
 try:
   run=True
   while run:
+    print('Listening....')
     #query=sb.getoutput('termux-speech-to-text')
     query=input('Query: ')
+    print('You Said: ',query)
+    
     
     mth=koro(query)
     if mth:
