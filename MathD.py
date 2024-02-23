@@ -1,4 +1,4 @@
-x=['add','+','sub','-','multiply','*','divide','/','addition','+','subtract','-','squire','sq','power','sq']
+x=['add','+','sub','-','multiply','*','divide','/','addition','+','subtract','-','squire','sq','power','sq','cube','cb']
 def mth(q):
   for i in range(10):
     if str(i) in q:
@@ -77,10 +77,13 @@ def koro(q):
   elif x[1]=='sq':
     word='Squire of '+str(x[0])
     gd=x[0][0]*x[0][0]
+  elif x[1]=='cb':
+    word='Cube of '+str(x[0])
+    gd=x[0][0]*x[0][0]*x[0][0]
   else:
     word=word+str(x[0][1])+' divided  by '+str(x[0][0])
     gd=x[0][1]/x[0][0]
-  if x[1]=='*' or x[1]=='/' or x[1]=='sq':
+  if x[1]=='*' or x[1]=='/' or x[1]=='cb' or x[1]=='sq':
     return [word,gd]
   else:
     return [word,xlt]

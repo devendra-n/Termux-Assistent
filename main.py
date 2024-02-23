@@ -24,8 +24,8 @@ try:
   run=True
   while run:
     print('Listening....')
-    #query=sb.getoutput('termux-speech-to-text')
-    query=input('Query: ')
+    query=sb.getoutput('termux-speech-to-text')
+    #query=input('Query: ')
     print('You Said: ',query)
     
     
@@ -33,17 +33,18 @@ try:
     if mth:
       sb.call(['termux-tts-speak',str(mth[0]+' is equal to '+str(mth[1]))])
       print('Answer:',mth[1])
-    rep=reply_(query)
-    if rep[1]==0:
-      for i in hot_words:
-        if i in query:
-          run=False
-          sb.call(['termux-tts-speak','Good Bye sir'])
-          break
-          
     else:
-      print('Response:',rep[0])
-      sb.call(['termux-tts-speak',rep[0]])
+      rep=reply_(query)
+      if rep[1]==0:
+        for i in hot_words:
+          if i in query:
+            run=False
+            sb.call(['termux-tts-speak','Good Bye sir'])
+            break
+          
+      else:
+        print('Response:',rep[0])
+        sb.call(['termux-tts-speak',rep[0]])
     
 except Exception as e:
   print('Error',e)
